@@ -5,6 +5,7 @@ import Layout from '@containers/layout';
 import HeroModule from '@components/LandingPage/HeroModule'
 import SplitModule from '@components/Modules/SplitModule';
 import { ReviewsModule } from '@components/Reviews/ReviewsModule';
+import { ReviewsSideModule } from '@components/Reviews/ReviewsSideModule';
 
 
 export default function Home(): React.ReactNode {
@@ -18,6 +19,11 @@ export default function Home(): React.ReactNode {
       />
       <ModuleWrapper>
           <HeroModule/>
+          <SplitModule
+            leftComponent={<ReviewsModule/>}
+            rightComponent={<ReviewsSideModule/>}
+            widerSide="left"
+          />
       </ModuleWrapper>
     </Layout>
   )

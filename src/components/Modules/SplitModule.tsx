@@ -29,6 +29,7 @@ export default SplitModule;
 
 const styles = StyleSheet.create({
     splitModuleContainer: {
+        display: "flex",
         flexDirection: "column",
         margin: "0 auto",
         [mediaQuery("tablet-landscape-v2")]: {
@@ -40,6 +41,7 @@ const styles = StyleSheet.create({
     
         [mediaQuery("tablet-landscape-v2")]: {
             width: `calc(2 * (100% / 3))`,
+            paddingRight: 26,
         },
     },
     narrowerComponent: {

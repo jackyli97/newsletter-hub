@@ -6,11 +6,10 @@ import colors from "@styles/colors";
 import {
     Text,
     Button,
-    ButtonGroup,
     Heading
 } from '@chakra-ui/react';
 
-import { MODULE_DESKTOP_PADDING,
+import {
     MODULE_MOBILE_PADDING,
 } from "@components/Wrappers/ModuleWrapper";
 import mediaQuery from "@styles/mediaQuery";
@@ -24,34 +23,8 @@ const HeroModule = () => {
         <div className={css(styles.heroContainer)}>
             <div className={css(styles.leftHero)}>
                 <div className={css(styles.leftHeroContentWrapper)}>
-                    <div className={css(styles.eyebrowWrapper)}>
-                        <Image
-                            style={{
-                                marginRight: "10px",
-                                maxHeight: 30,
-                                [mediaQuery("tablet-portrait-v2")]: {
-                                  maxHeight: 40,
-                                  marginRight: 13,
-                            
-                                  ":nth-child(1n) svg": {
-                                    display: "block",
-                                    height: 40,
-                                    width: "auto",
-                                  },
-                                },
-                            }}
-                            src="/icon.svg"
-                            alt="Newsletter Hub Icon"
-                            width={39}
-                            height={36}
-
-                        />
-                        <Text fontSize="sm" fontWeight="bold">
-                            Newsletter Hub
-                        </Text>
-                    </div>
                     <div className={css(styles.headlineWrapper)}>
-                        <Heading as="h1" size="xl" lineHeight={1.1}>
+                        <Heading as="h1" size="3xl" lineHeight={1.1} fontWeight="normal">
                             {title}
                         </Heading>
                     </div>
@@ -104,7 +77,7 @@ const styles = StyleSheet.create({
     },
     leftHeroContentWrapper: {
         [mediaQuery("tablet-landscape-v2")]: {
-          maxWidth: 474,
+          maxWidth: 615,
         },
       },
     rightHero: {
@@ -121,15 +94,6 @@ const styles = StyleSheet.create({
     
         [mediaQuery("tablet-landscape-v2")]: {
             width: `calc(100% / 3)`,
-        },
-      },
-      eyebrowWrapper: {
-        display: "flex",
-        alignItems: "center",
-        marginBottom: 15,
-    
-        [mediaQuery("tablet-landscape-v2")]: {
-          marginBottom: 30,
         },
       },
     headlineWrapper: {
@@ -149,7 +113,6 @@ const styles = StyleSheet.create({
     imageWrapper: {
         top: "auto",
         width: "100%",
-        /* eslint-disable-next-line flexport-static-site/no-unknown-styles */
         aspectRatio: "375 / 320",
     },
 });

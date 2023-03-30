@@ -1,6 +1,5 @@
 import * as React from "react";
 import { StyleSheet, css } from "aphrodite";
-import colors from "@styles/colors";
 import mediaQuery from "@styles/mediaQuery";
 
 type Props = {
@@ -28,9 +27,6 @@ export default ModuleWrapper;
 
 const styles = StyleSheet.create({
     moduleLayout: {
-        display: "flex",
-        flexDirection: "column",
-
         maxWidth: MODULE_MAX_WIDTH,
         margin: "0 auto",
         padding: `0 ${MODULE_MOBILE_PADDING}px`,
@@ -41,7 +37,6 @@ const styles = StyleSheet.create({
         },
     
         [mediaQuery("tablet-landscape-v2")]: {
-          flexDirection: "row",
           paddingLeft: MODULE_TABLET_LANDSCAPE_PADDING,
           paddingRight: MODULE_TABLET_LANDSCAPE_PADDING,
         },
