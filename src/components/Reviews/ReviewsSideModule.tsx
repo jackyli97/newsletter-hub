@@ -22,8 +22,6 @@ export const ReviewsSideModule = () => {
                 <ReviewSide />
                 <ReviewSide />
                 <ReviewSide />
-                <ReviewSide />
-                <ReviewSide />
             </div>
         </div>
     );
