@@ -17,7 +17,7 @@ const ModuleWrapper = (props: Props) => {
     )
 }
 
-export const MODULE_MAX_WIDTH = 1440;
+export const MODULE_MAX_WIDTH = 1920;
 export const MODULE_MOBILE_PADDING = 20;
 export const MODULE_TABLET_PADDING = 40;
 export const MODULE_TABLET_LANDSCAPE_PADDING = 42;

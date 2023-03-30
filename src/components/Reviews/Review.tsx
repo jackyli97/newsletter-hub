@@ -36,7 +36,6 @@ const Review = (props: Props) => {
         <div className={css(styles.reviewContainer)}>
             <div className={css(
                 styles.leftSideReviewContainer,
-                fullSize === true ? styles.fullSizeLeftSideRightPadding : styles.leftSideRightPadding,
                 )}>
                 <div className={css(
                     styles.newsletterImageWrapper,
@@ -84,6 +83,7 @@ const Review = (props: Props) => {
             <div className={css(styles.rightSideReviewContainer)}>
                 <div className={css(styles.newsletterReviewTextWrapper
                     )}>
+                    {/* @ts-ignore */}
                     <Text fontSize="sm" style={{textAlign: "justify"}} noOfLines={3}>
                         {sampleNewsletterReviewText}
                     </Text>
@@ -132,35 +132,27 @@ const styles = StyleSheet.create({
             padding: "12px 0",
         },
         borderBottom: "1.44271px solid #E6E7EA",
-        position: "relative",
     },
     leftSideReviewContainer: {
         display: "flex",
         flexDirection: "row",
-
-    },
-    leftSideRightPadding: {
         [mediaQuery("tablet-landscape-v2")]: {
-            paddingRight: 33.75,
-        },
-    },
-    fullSizeLeftSideRightPadding: {
-        [mediaQuery("tablet-landscape-v2")]: {
-            paddingRight: 48.75,
+            width: `calc(100% / 3)`,
         },
     },
     rightSideReviewContainer: {
         display: "flex",
         flexFlow: "column",
+        justifyContent: "space-between",
+        [mediaQuery("tablet-landscape-v2")]: {
+            width: `calc(2 * (100% / 3))`,
+        },
     },
     iconsAndButtonContainer: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "flex-end",
-        position: "absolute",
-        bottom: 0,
-        right: 0,
     },
     iconsContainer: {
         display: "flex",
@@ -178,12 +170,12 @@ const styles = StyleSheet.create({
     },
     imagePadding: {
         [mediaQuery("tablet-landscape-v2")]: {
-            paddingRight: 24,
+            paddingRight: 32,
         },
     },
     fullSizeImagePadding: {
         [mediaQuery("tablet-landscape-v2")]: {
-            paddingRight: 34.5,
+            paddingRight: 46,
         },
     },
     newsletterDetailsContainer: {
@@ -201,7 +193,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
     newsletterReviewTextWrapper: {
-        position: "absolute",
     },
     newsletterDetailsItemPadding: {
         [mediaQuery("tablet-landscape-v2")]: {

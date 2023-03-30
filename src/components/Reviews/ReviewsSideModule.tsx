@@ -5,13 +5,19 @@ import mediaQuery from '@styles/mediaQuery';
 import {
     Heading
 } from '@chakra-ui/react';
+import { AlegrayaRegular } from '@styles/typography';
 
 export const ReviewsSideModule = () => {
     return (
         <div className={css(styles.container)}>
             <div className={css(styles.titleWrapper)}>
                 {/* @ts-ignore */}
-                <Heading as="h2" color="black" fontWeight="normal" size="lg">
+                <Heading 
+                    as="h2" 
+                    fontWeight="medium" 
+                    size="lg"
+                    fontFamily={AlegrayaRegular.fontFamily}
+                >
                     Reviews for Your Newsletters
                 </Heading>
             </div>

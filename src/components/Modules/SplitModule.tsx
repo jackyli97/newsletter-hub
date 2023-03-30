@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         margin: "0 auto",
         [mediaQuery("tablet-landscape-v2")]: {
             flexDirection: "row",
+            paddingBottom: 81
           },
     },
     widerComponent: {
