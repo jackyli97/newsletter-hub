@@ -28,7 +28,8 @@
     "typescript": "5.0.2"
   },
   "devDependencies": {
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "next-fonts": "^1.5.1"
   },
   "husky": {
     "hooks": {

@@ -2,6 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 import { StyleSheet, css } from "aphrodite";
 import colors from "@styles/colors";
+import {AlegrayaRegular} from "@styles/typography";
 
 import {
     Text,
@@ -24,13 +25,31 @@ const HeroModule = () => {
             <div className={css(styles.leftHero)}>
                 <div className={css(styles.leftHeroContentWrapper)}>
                     <div className={css(styles.headlineWrapper)}>
-                        <Heading as="h1" size="3xl" lineHeight={1.1} fontWeight="normal">
+                        <Heading 
+                            as="h1"
+                            size="4xl"
+                            lineHeight={1.1}
+                            fontWeight="medium"
+                            fontFamily={AlegrayaRegular.fontFamily}
+                        >
                             {title}
                         </Heading>
                     </div>
-                    <Text fontSize="lg">{descrption}</Text>
+                    {/* @ts-ignore */}
+                    <Text 
+                        fontSize="2xl"
+                        fontFamily={AlegrayaRegular.fontFamily}
+                        color="#6F6C90"
+                    >{descrption}</Text>
                     <div className={css(styles.ctaButtonWrapper)}>  
-                        <Button size="lg" fontSize="lg" color="white" backgroundColor={colors.buttonColor} variant="solid">{ctaText}</Button>
+                        <Button 
+                            size="lg" 
+                            fontSize="lg" 
+                            color="white" 
+                            backgroundColor={colors.buttonColor} 
+                            variant="solid"
+                        >
+                            {ctaText}</Button>
                     </div>
                 </div>
             </div>
@@ -58,6 +77,7 @@ const styles = StyleSheet.create({
         margin: "0 auto",
         [mediaQuery("tablet-landscape-v2")]: {
             flexDirection: "row",
+            paddingBottom: 81
           },
       
     },
@@ -77,7 +97,7 @@ const styles = StyleSheet.create({
     },
     leftHeroContentWrapper: {
         [mediaQuery("tablet-landscape-v2")]: {
-          maxWidth: 615,
+          maxWidth: 820,
         },
       },
     rightHero: {

@@ -6,6 +6,7 @@ import {
     Button,
     Heading
 } from '@chakra-ui/react';
+import { AlegrayaRegular } from '@styles/typography';
 
 type Props = {
     fullSize?: boolean,
@@ -17,7 +18,11 @@ export const ReviewsModule = (props: Props) => {
         <div className={css(styles.container)}>
             <div className={css(styles.titleWrapper)}>
                 {/* @ts-ignore */}
-                <Heading as="h2" color="black" fontWeight="normal">
+                <Heading 
+                    as="h2"
+                    fontWeight="medium"
+                    fontFamily={AlegrayaRegular.fontFamily}
+                >
                     Latest Reviews
                 </Heading>
             </div>
@@ -58,10 +63,10 @@ const styles = StyleSheet.create({
         borderRadius: 18,
     },
     mainPadding: {
-        padding: 37.5,
+        padding: 50,
     },
     fullPadding: {
-        padding: 54,
+        padding: 72,
     },
     buttonWrapper: {
         [mediaQuery("tablet-landscape-v2")]: {

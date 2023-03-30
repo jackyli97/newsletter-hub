@@ -23,8 +23,9 @@
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./src/styles/*"],
       "@containers/*": ["./src/containers/*"],
+      "@fonts/*": ["./src/fonts/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/_document.js", "src/styles/typography.js"],
   "exclude": ["node_modules"]
 }
