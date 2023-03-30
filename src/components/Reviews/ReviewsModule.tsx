@@ -1,42 +1,43 @@
 import * as React from 'react';
-import ReviewMain from './ReviewMain';
+import Review from './Review';
 import { css, StyleSheet } from 'aphrodite';
-import colors from '@styles/colors';
 import mediaQuery from '@styles/mediaQuery';
 import {
-    Text,
     Button,
     Heading
 } from '@chakra-ui/react';
 
 type Props = {
-    type: "main" | "side"
+    fullSize?: boolean,
 }
 
 export const ReviewsModule = (props: Props) => {
-
+    const { fullSize } = props;
     return (
-        props.type === "main" ? (
-            <div className={css(styles.container)}>
-                <div className={css(styles.titleWrapper)}>
-                    <Heading as="h2" color="black">
-                        Latest Reviews
-                    </Heading>
-                </div>
-                <div className={css(styles.reviewsContainer)}>
-                    <ReviewMain />
-                    <ReviewMain />
-                    <ReviewMain />
-                    <ReviewMain />
-                    <ReviewMain />
-                </div>
+        <div className={css(styles.container)}>
+            <div className={css(styles.titleWrapper)}>
+                {/* @ts-ignore */}
+                <Heading as="h2" color="black" fontWeight="normal">
+                    Latest Reviews
+                </Heading>
+            </div>
+            <div className={css(
+                styles.reviewsContainer,
+                fullSize === true ? styles.fullPadding : styles.mainPadding
+            )
+            }>
+                <Review />
+                <Review />
+                <Review />
+                <Review />
+                <Review />
                 <div className={css(styles.buttonWrapper)}>
-                    <Button variant="solid" color="white" backgroundColor="black">
+                    <Button variant="solid" color="white" backgroundColor="black" width="100%">
                         See More
                     </Button>
                 </div>
             </div>
-        ) : null
+        </div>
     );
 }
 
@@ -46,13 +47,25 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     titleWrapper: {
-
+        [mediaQuery("tablet-landscape-v2")]: {
+            paddingBottom: 10,
+        },
     },
     reviewsContainer: {
         display: 'flex',
         flexDirection: 'column',
+        boxShadow: '0px 3px 14px rgba(74, 58, 255, 0.03), 0px -2px 4px rgba(20, 20, 43, 0.02), 0px 12px 24px rgba(20, 20, 43, 0.04)',
+        borderRadius: 18,
+    },
+    mainPadding: {
+        padding: 37.5,
+    },
+    fullPadding: {
+        padding: 54,
     },
     buttonWrapper: {
-
+        [mediaQuery("tablet-landscape-v2")]: {
+            paddingTop: 40,
+        },
     },
 });
