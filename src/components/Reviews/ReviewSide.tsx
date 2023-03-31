@@ -42,23 +42,12 @@ const ReviewSide = () => {
                     </div>
                 </div>
 
-                <div className={css(styles.newsletterReviewTextWrapper
-                    )}>
+                <div>
+                    {/* @ts-ignore */}
                     <Text fontSize="sm" style={{textAlign: "justify"}} noOfLines={3}>
                         {sampleNewsletterReviewText}
                     </Text>
                 </div>
-
-                    <div className={css(styles.buttonWrapper)}>
-                        <Button
-                            variant="link"
-                            color={colors.buttonColor}
-                            size="sm"
-                            fontSize="sm"
-                        >
-                            See More
-                        </Button>
-                    </div>
         </div>
     )
 }
@@ -97,12 +86,5 @@ const styles = StyleSheet.create({
         [mediaQuery("tablet-landscape-v2")]: {
             paddingBottom: 8,
         },
-    },
-    newsletterReviewTextWrapper: {
-        [mediaQuery("tablet-landscape-v2")]: {
-            paddingBottom: 24,
-        },
-    },
-    buttonWrapper: {
     },
 })
