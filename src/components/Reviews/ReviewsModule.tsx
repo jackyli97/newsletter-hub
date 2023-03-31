@@ -12,8 +12,39 @@ type Props = {
     fullSize?: boolean,
 }
 
+const MAX_REVIEW_INDEX: number = 100; 
+
+let index: number = 0;
+
+const allReviews: React.ReactNode[] = [];
+
+for (let i = 0; i < MAX_REVIEW_INDEX; i++) {
+    allReviews.push(<Review />);
+}
+
+const getReviews = async (): Promise<React.ReactNode[] | null> => {
+    // const response = await fetch(`/api/reviews?page=${pageNumber}&limit=4`);
+    // const data = await response.json();
+    if (index + 4 > allReviews.length) return null;
+    const oldIndex = index;
+    index += 4;
+    return await allReviews.slice(oldIndex, oldIndex + 4);
+}
+
 export const ReviewsModule = (props: Props) => {
     const { fullSize } = props;
+    const [reviews, setReviews] = React.useState<React.ReactNode[]>([]);
+
+    const fetchReviews = async () => {
+        const newReviews = await getReviews();
+        if (newReviews === null) return;
+        setReviews([...reviews, ...newReviews]);
+    }
+
+    React.useEffect(() => {
+        fetchReviews();
+    }, []);
+
     return (
         <div className={css(styles.container)}>
             <div className={css(styles.titleWrapper)}>
@@ -31,13 +62,22 @@ export const ReviewsModule = (props: Props) => {
                 fullSize === true ? styles.fullPadding : styles.mainPadding
             )
             }>
-                <Review />
-                <Review />
-                <Review />
-                <Review />
-                <Review />
+                {reviews.map((review, index) => {
+                    return (
+                        <div key={index}>
+                            {review}
+                        </div>
+                    );
+                }
+                )}
                 <div className={css(styles.buttonWrapper)}>
-                    <Button variant="solid" color="white" backgroundColor="black" width="100%">
+                    <Button 
+                        variant="solid" 
+                        color="white" 
+                        backgroundColor="black" 
+                        width="100%"
+                        onClick={fetchReviews}
+                        >
                         See More
                     </Button>
                 </div>
